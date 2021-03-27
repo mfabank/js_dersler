@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programlama #1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script>
+
+
+        while (true) {
+            var girilenDeger = prompt("Bir Karakter Dizisi Giriniz : ");
+            if (girilenDeger.length > 9 || girilenDeger.length <= 1) {
+                alert("Lütfen 1 ile 9 karakter sayısı aralığında bir giriş yapınız.");
+            } else if (/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(girilenDeger) == true) {
+                alert("Ozel Karakter Girmeyiniz.");
+            } else if (girilenDeger / 1 == girilenDeger) {
+                alert("Sayı Değil Karakter Girişi Yapınız..");
+            } else if (girilenDeger) {
+                for (var i = 0; i < 10; i++) {
+                    if (girilenDeger.includes(i) == true) {
+                        alert("Karışık veri girişi yapmayın..");
+                        break;
+                    }
+                }
+
+                if (girilenDeger.includes(i) == false) {
+                    alert("Doğru Giriş Yaptınız");
+
+                    var parcala = girilenDeger.split("");
+
+                    document.write("Girilen Metin : " + "<strong>" + girilenDeger + "</strong>"+ "<br><br>");
+                    document.write("<strong>Kombinasyonlar</strong><br>");
+
+                    for (var i = 0; i < parcala.length; i++) {
+
+                        var sonuc = '';
+                        for (var j = 0; j <= i; j++) {
+
+                            var rnum = Math.floor(Math.random() * girilenDeger.length);
+                            sonuc += girilenDeger.charAt(rnum);
+                        }
+
+                        document.write("<div id = kutu>" + (i+1)+ " Karakterli : " + sonuc + "</div>");
+                    }
+                    break;
+                }
+
+                
+
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
